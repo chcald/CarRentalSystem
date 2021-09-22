@@ -15,13 +15,16 @@ import java.util.List;
  * @author anapaula
  */
 public class RentACar implements RentACarInterface {
-     
+
     private List<CarInterface> Cars;
-     private String Name;
-     private int NumberOfCars;
-     
+    private String Name;
+    private int NumberOfCars;
     
-     
+    public RentACar(int NumberOfCars){
+        this.NumberOfCars = NumberOfCars;
+    }
+    
+
     @Override
     public List<CarInterface> getCars() {
         return Cars;
@@ -39,7 +42,7 @@ public class RentACar implements RentACarInterface {
 
     @Override
     public void setName(String name) {
-       this.Name = name;
+        this.Name = name;
     }
 
     @Override
@@ -49,17 +52,17 @@ public class RentACar implements RentACarInterface {
 
     @Override
     public int getCarAvailable(Month month, int day, Make make, int lengthOfRent) {
-      return 0;
+        return 0;
     }
 
     @Override
     public boolean bookCar(Month month, int day, Make make, int lengthOfRent) {
         return true;
     }
-    
+
     @Override
     public int getNumberOfCars() {
-       return NumberOfCars;
+        return NumberOfCars;
     }
-    
+
 }

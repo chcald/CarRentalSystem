@@ -21,9 +21,16 @@ public class Car implements CarInterface {
     private int id;
     private Map<Month, boolean[]> availability;
 
+    public Car(double rate, Make make, int id) {
+        this.rate = rate;
+        this.make = make;
+        this.id = id;
+    }
+
     @Override
     public Map<Month, boolean[]> createAvailability() {
-       availability = new HashMap<Month, boolean[]>();
+        availability = new HashMap<Month, boolean[]>();
+        
         return availability;
     }
 
@@ -54,24 +61,27 @@ public class Car implements CarInterface {
 
     @Override
     public void setAvailability(Map<Month, boolean[]> availability) {
-       this.availability = availability;
+        this.availability = availability;
     }
 
     @Override
     public int getId() {
-       return this.id;
+        return this.id;
     }
 
     @Override
     public boolean isAvailable(Month month, int day) {
-       return month.equals(day);
-    
+        
+        boolean[] days = availability.get(month);
+                
+        return days[day];
     }
 
     @Override
     public boolean book(Month month, int day) {
-        if(isAvailable(month,day)){
-        
+        if (isAvailable(month, day)) {
+           boolean[] days = availability.get(month);
+           days[day] = false;
         }
         return true;
     }

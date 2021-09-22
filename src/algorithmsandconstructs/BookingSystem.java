@@ -5,8 +5,10 @@
  */
 package algorithmsandconstructs;
 
+import algorithmsandconstructs.enums.Make;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,28 +19,43 @@ public class BookingSystem implements BookingSystemInterface {
 
     @Override
     public RentACarInterface setupRentACar(BufferedReader in) throws IOException {
-        String title = in.readLine();
+        String name = in.readLine();
         String content = "";
-        
-        
-        RentACarInterface rentACar = new RentACar();
-        
-        List<CarInterface> cars = new List<Car>();
-        
-        while(title != null){
-            System.out.println(title);
+
+        int countCars = 0;
+        int id = 1;
+
+        List<CarInterface> cars = new ArrayList<CarInterface>();
+
+        while (name != null) {
+            System.out.println(name);
             content = in.readLine();
-            System.out.println(content);
-            
-            
-            Car item = new Car(title, content);
-            rentACar.addItem(item);
-            
-            title = in.readLine();
+
+            String[] atr = content.split(":");
+
+//            for (int i = 0; i < atr.length; i++) {
+//                String string = atr[i];
+//                System.out.println("Content***" + string); 
+//            }
+            double rate = Double.valueOf(atr[1]);
+
+            Make make = Make.valueOf(atr[0]);
+
+            int numberOfCars = Integer.valueOf(atr[2]);
+
+            for (int i = 0; i < numberOfCars; i++) {
+                
+                cars.add(new Car(rate, make, id++));
+
+            }
+
+            name = in.readLine();
         }
-         
-        return feed;
+        RentACarInterface rentACar = new RentACar(countCars);
+        rentACar.setName(name);
+        rentACar.setCars(cars);
+
+        return rentACar;
     }
-    
-   
+
 }
