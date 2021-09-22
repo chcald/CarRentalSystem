@@ -7,6 +7,7 @@ package algorithmsandconstructs;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.List;
 
 /**
  *
@@ -16,7 +17,27 @@ public class BookingSystem implements BookingSystemInterface {
 
     @Override
     public RentACarInterface setupRentACar(BufferedReader in) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String title = in.readLine();
+        String content = "";
+        
+        
+        RentACarInterface rentACar = new RentACar();
+        
+        List<CarInterface> cars = new List<Car>();
+        
+        while(title != null){
+            System.out.println(title);
+            content = in.readLine();
+            System.out.println(content);
+            
+            
+            Car item = new Car(title, content);
+            rentACar.addItem(item);
+            
+            title = in.readLine();
+        }
+         
+        return feed;
     }
     
    

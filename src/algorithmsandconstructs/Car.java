@@ -70,7 +70,10 @@ public class Car implements CarInterface {
 
     @Override
     public boolean book(Month month, int day) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(isAvailable(month,day)){
+        
+        }
+        return true;
     }
 
 }
