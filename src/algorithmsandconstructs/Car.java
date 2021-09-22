@@ -7,6 +7,7 @@ package algorithmsandconstructs;
 
 import algorithmsandconstructs.enums.Make;
 import algorithmsandconstructs.enums.Month;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -15,54 +16,61 @@ import java.util.Map;
  */
 public class Car implements CarInterface {
 
+    private Make make;
+    private double rate;
+    private int id;
+    private Map<Month, boolean[]> availability;
+
     @Override
     public Map<Month, boolean[]> createAvailability() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       availability = new HashMap<Month, boolean[]>();
+        return availability;
     }
 
     @Override
     public Make getMake() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.make;
     }
 
     @Override
     public void setMake(Make make) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.make = make;
     }
 
     @Override
     public double getRate() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.rate;
     }
 
     @Override
     public void setRate(double rate) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.rate = rate;
     }
 
     @Override
     public Map<Month, boolean[]> getAvailability() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.availability;
     }
 
     @Override
     public void setAvailability(Map<Month, boolean[]> availability) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       this.availability = availability;
     }
 
     @Override
     public int getId() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       return this.id;
     }
 
     @Override
     public boolean isAvailable(Month month, int day) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       return month.equals(day);
+    
     }
 
     @Override
     public boolean book(Month month, int day) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }
